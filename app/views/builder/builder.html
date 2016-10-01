@@ -7,7 +7,7 @@
          ng-class="{'tools-opened':toolsSlide, 'tools-closed':!toolsSlide}"
          ng-click="toolsClick()">
     </div>
-    <div ng-show="toolsSlide" ng-hide="!toolsSlide" class="builder-tools">
+    <div ng-show="toolsSlide" class="builder-tools">
         <div class="builder-tools-items" ng-model="collapsed" ng-click="collapsed=!collapsed">
             <span ng-class="{'tools-opened-item-menu': collapsed}">Основные элементы</span>
         </div>

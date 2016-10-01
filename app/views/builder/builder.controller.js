@@ -49,7 +49,7 @@ angular.module('app')
       }
     };
 
-    $scope.items = []
+    $scope.items = [];
 
     $scope.toolsClick = function () {
         $scope.toolsSlide = !$scope.toolsSlide
