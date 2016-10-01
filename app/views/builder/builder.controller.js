@@ -1,41 +1,58 @@
 angular.module('app')
 .controller('BuilderCtrl', function($scope, dragulaService){
 
-    $scope.pageSlide = true;
+    $scope.toolsSlide = true;
     dragulaService.options($scope, 'builder-pain', {
       removeOnSpill: function(el, container, handle){
         return true
       },
       copy: function (el, container, handle) {
         if(container.classList.contains('toolsElems')) return true
-        return false
+        else return false
       }
     });
 
-    $scope.$on('builder-pain.drag', function (e, el) {
-      el.removeClass('ex-moved');
-    });
+    // $scope.$on('builder-pain.drag', function (e, el) {
+    //   el.removeClass('ex-moved');
+    // });
+    //
+    // $scope.$on('builder-pain.drop', function (e, el) {
+    //   el.addClass('ex-moved');
+    // });
+    //
+    // $scope.$on('builder-pain.over', function (e, el, container) {
+    //   container.addClass('ex-over');
+    // });
+    //
+    // $scope.$on('builder-pain.out', function (e, el, container) {
+    //   container.removeClass('ex-over');
+    // });
 
-    $scope.$on('builder-pain.drop', function (e, el) {
-      el.addClass('ex-moved');
-    });
+    $scope.tools = {
+      "main": {
+        "name": "Main elements",
+        "items":[{
 
-    $scope.$on('builder-pain.over', function (e, el, container) {
-      container.addClass('ex-over');
-    });
+          }]
+      },
+      "other": {
+        "name": "Other elements",
+        "items": [{
 
-    $scope.$on('builder-pain.out', function (e, el, container) {
-      container.removeClass('ex-over');
-    });
+          }]
+      },
+      "custom": {
+        "name": "Custom items",
+        "items": [{
 
-    $scope.tools = [
-
-    ];
+          }]
+      }
+    };
 
     $scope.items = []
 
     $scope.toolsClick = function () {
-        $scope.pageSlide = !$scope.pageSlide
+        $scope.toolsSlide = !$scope.toolsSlide
     }
 })
 .directive('toolbox', ['$document' , function($document) {

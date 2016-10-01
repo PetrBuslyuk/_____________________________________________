@@ -71,16 +71,35 @@ ul.main-menu li{
     color: #185978;
 }
 
-.ng-pageslide {
-    padding: 10px;
+.builder-tools{
+    right: 0;
+    top:0;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
     color: #fff;
     background-color: #185978;
-    opacity: 1;
     position: absolute;
     overflow: hidden;
-    z-index: -1;
+    z-index: 500;
 }
 
+.builder-tools-items{
+  opacity: 1;
+  color: #fff;
+}
+
+.builder-tools.ng-hide {
+  -webkit-animation: smooth 5s ease-in;
+  -moz-animation: smooth 5s ease-in;
+  -o-animation: smooth 5s ease-in;
+  -ms-animation: smooth 5s ease-in;
+   animation: smooth 5s ease-in;
+}
+
+.builder-pain-hide {
+   display: none;
+}
 
 .builder-pain{
   background-color: yellow;
@@ -89,26 +108,23 @@ ul.main-menu li{
   height: 300px;
 }
 
-.builder-pain-items{
-    opacity: 1;
-    color: #fff;
-}
+
 
 .tools{
-    right:10px;
-    top:15px;
-    position: absolute;
-    z-index: 10000;
+  right:10px;
+  top:15px;
+  position: absolute;
+  z-index: 501;
 }
 
 .tools-opened-item-menu{
-    color: #ffc42a !important;
+  color: #ffc42a !important;
 }
 
 div.tools-opened:before{
-    content:url(../imgs/tools_on.png);
+  content:url(../imgs/tools_on.png);
 }
 
 div.tools-closed:before{
-    content:url(../imgs/tools_off.png);
+  content:url(../imgs/tools_off.png);
 }

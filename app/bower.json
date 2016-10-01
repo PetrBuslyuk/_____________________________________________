@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "angular-dnd-module": "0.1.22",
-    "angular-dragula": "^1.2.8"
+    "angular-dragula": "^1.2.8",
+    "angular-animate": "1.5.8"
   }
 }
