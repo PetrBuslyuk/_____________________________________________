@@ -3,11 +3,14 @@ angular.module('app')
 
     $scope.pageSlide = true
     dragulaService.options($scope, 'builder-pain', {
-      removeOnSpill: true
+      removeOnSpill: true,
+      copy: function (el, container, handle) {
+        console.log(el, container, handle)
+      }
     });
 
     $scope.tools = [
-
+      
     ];
 
     $scope.items = []
