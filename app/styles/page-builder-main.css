@@ -1,0 +1,118 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header,  menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.html-cl, .body-cl, html, body {
+    height: 100%;
+}
+
+.html-cl {
+    display: table;
+    margin: auto;
+    padding-top: 20%;
+}
+
+.body-cl {
+    display: table-cell;
+    vertical-align: middle;
+}
+.main{
+    text-align: center;
+}
+
+.main-header{
+    font-size: xx-large;
+    padding-bottom: 10px;
+}
+
+ul.main-menu li{
+    display:inline;
+    margin-right: 1%;
+    color: #185978;
+}
+
+.ng-pageslide {
+    padding: 10px;
+    color: #fff;
+    background-color: #185978;
+    opacity: 1;
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.builder-main{
+  top:0px;
+  right: 0px;
+}
+
+.builder-pain{
+  background-color: yellow;
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.builder-pain-items{
+    opacity: 1;
+    color: #fff;
+}
+
+.tools{
+    right:10px;
+    top:15px;
+    position: absolute;
+    z-index: 10000;
+}
+
+.tools-opened-item-menu{
+    color: #ffc42a !important;
+}
+
+div.tools-opened:before{
+    content:url(../imgs/tools_on.png);
+}
+
+div.tools-closed:before{
+    content:url(../imgs/tools_off.png);
+}

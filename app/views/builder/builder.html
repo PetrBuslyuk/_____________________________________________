@@ -1,0 +1,26 @@
+<div class="builder-main" >
+    <div class="builder-pain" ng-repeat="item in items" dragula='"builder-pain"' dragula-scope="$scope">
+        <!-- <panel items="items" ></panel> -->
+    </div>
+
+    <div toolbox class="tools"
+         draggable="true"
+         ng-class="{'tools-opened':pageSlide, 'tools-closed':!pageSlide}"
+         ng-click="toolsClick()">
+    </div>
+
+    <pageslide ps-speed="0.5" ps-open="pageSlide" ps-target="#pageSlide">
+        <div id="pageSlide" class="ng-pageslide">
+            <div class="builder-pain-items" ng-model="collapsed"
+                 ng-click="collapsed=!collapsed">
+                <span ng-class="{'tools-opened-item-menu': collapsed}">Основные элементы</span>
+            </div>
+            <div ng-show="collapsed">
+                <input type="text"/>
+                <button >Button</button>
+                <label style="color:white">label</label>
+                <textarea>TextArea</textarea>
+            </div>
+        </div>
+    </pageslide>
+</div>
