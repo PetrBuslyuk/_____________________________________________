@@ -81,10 +81,6 @@ ul.main-menu li{
     z-index: -1;
 }
 
-.builder-main{
-  top:0px;
-  right: 0px;
-}
 
 .builder-pain{
   background-color: yellow;
