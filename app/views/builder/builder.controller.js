@@ -102,18 +102,6 @@ angular.module('app')
           console.log('dy',dy,'dx',dx);
           return false;
       })
-
-
-      //return $compile(scope.element.html)(scope);
-      //  scope.element;
-      //console.log('in post fn', scope, elem, attrs, one)
-      // return {
-      //     pre: function (scope, elem, attrs, one) {
-      //     },
-      //     post: function(scope, elem, attrs, one) {
-      //
-      //     }
-      // }
     }
   }
 }])
