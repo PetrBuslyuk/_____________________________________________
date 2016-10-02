@@ -32,20 +32,33 @@ angular.module('app')
       "main": {
         "name": "Main elements",
         "items":[{
-
-          }]
+            "name": "input",
+            "description": "input",
+            "html": "<input type='text'>",
+            "styles": "width: 100px;",
+            "class": ""
+        },{
+            "name": "button",
+            "description": "button",
+            "html": "<button></button>",
+            "styles": "width: 100px;",
+            "class": ""
+        }],
+        "collapsed": true
       },
       "other": {
         "name": "Other elements",
         "items": [{
 
-          }]
+        }],
+        "collapsed": true
       },
       "custom": {
         "name": "Custom items",
         "items": [{
 
-          }]
+        }],
+        "collapsed": true
       }
     };
 
