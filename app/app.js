@@ -1,4 +1,4 @@
-angular.module("app", ['ui.router', 'pageslide-directive', angularDragula(angular), 'ngAnimate'])
+angular.module("app", ['ui.router',  angularDragula(angular), 'ngAnimate', 'ngSanitize'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('home', {

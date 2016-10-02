@@ -34,13 +34,13 @@ angular.module('app')
         "items":[{
             "name": "input",
             "description": "input",
-            "html": "<input type='text'>",
+            "html": "<input style='width:100px' type='text'>",
             "styles": "width: 100px;",
             "class": ""
         },{
             "name": "button",
             "description": "button",
-            "html": "<button></button>",
+            "html": "<button style='width:100px'>Btn</button>",
             "styles": "width: 100px;",
             "class": ""
         }],
@@ -68,6 +68,31 @@ angular.module('app')
         $scope.toolsSlide = !$scope.toolsSlide
     }
 })
+.directive('elementDragged', ['$compile', function($compile){
+  return {
+    restrict: 'E',
+    scope: {
+      element: '='
+    },
+    link: function(scope, elm, attrs){
+      // console.log('we in complile directive', scope, elm, attrs)
+      console.log(scope.element)
+      var linkFn = $compile(scope.element.html);
+      var content = linkFn(scope);
+      elm.append(content);
+      //return $compile(scope.element.html)(scope);
+      //  scope.element;
+      //console.log('in post fn', scope, elem, attrs, one)
+      // return {
+      //     pre: function (scope, elem, attrs, one) {
+      //     },
+      //     post: function(scope, elem, attrs, one) {
+      //
+      //     }
+      // }
+    }
+  }
+}])
 .directive('toolbox', ['$document' , function($document) {
     return {
         restrict: 'A',

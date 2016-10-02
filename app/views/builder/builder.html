@@ -8,14 +8,14 @@
          ng-click="toolsClick()">
     </div>
     <div ng-show="toolsSlide" class="builder-tools">
-        <div class="builder-tools-items" ng-model="collapsed" ng-click="collapsed=!collapsed">
-            <span ng-class="{'tools-opened-item-menu': collapsed}">Основные элементы</span>
+      <div ng-repeat="toolElement in tools">
+        <div class="builder-tools-items" ng-model="toolElement.collapsed" ng-click="toolElement.collapsed=!toolElement.collapsed">
+            <span ng-class="{'tools-opened-item-menu': toolElement.collapsed}" ng-bind="toolElement.name">Основные элементы</span>
         </div>
-        <div ng-show="collapsed" class="toolsElems" dragula='"builder-pain"' dragula-scope="$scope">
-            <input style="width:100px;" type="text"/>
-            <button >Button</button>
-            <label style="color:white">label</label>
-            <textarea style="width:100px;">TextArea</textarea>
+        <div ng-repeat="element in toolElement.items" ng-show="toolElement.collapsed" class="toolsElems" dragula='"builder-pain"' dragula-scope="$scope">
+            <element-dragged element="element"></element-dragged>
         </div>
+      </div>
+
     </div>
 </div>
