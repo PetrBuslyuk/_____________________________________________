@@ -12,9 +12,11 @@ angular.module('app')
       }
     });
 
-    // $scope.$on('builder-pain.drag', function (e, el) {
-    //   el.removeClass('ex-moved');
-    // });
+    $scope.$on('builder-pain.drag', function (e, el) {
+      // console.log($scope.items);
+      // console.log(e, el);
+      // el.removeClass('ex-moved');
+    });
     //
     // $scope.$on('builder-pain.drop', function (e, el) {
     //   el.addClass('ex-moved');
@@ -34,13 +36,13 @@ angular.module('app')
         "items":[{
             "name": "input",
             "description": "input",
-            "html": "<input style='width:100px' type='text'>",
+            "html": "<input style='width:100px; top:0px; left:0;' type='text'>",
             "styles": "width: 100px;",
             "class": ""
         },{
             "name": "button",
             "description": "button",
-            "html": "<button style='width:100px'>Btn</button>",
+            "html": "<button style='width:100px; top:0px; left:0;'>Btn</button>",
             "styles": "width: 100px;",
             "class": ""
         }],
@@ -75,11 +77,33 @@ angular.module('app')
       element: '='
     },
     link: function(scope, elm, attrs){
-      // console.log('we in complile directive', scope, elm, attrs)
-      console.log(scope.element)
+      var startX, startY, initialMouseX, initialMouseY;
+      // console.log(scope.element)
       var linkFn = $compile(scope.element.html);
       var content = linkFn(scope);
       elm.append(content);
+
+      elm.bind("dragstart", function($event) {
+        console.log('dragstarted')
+          startX = elm.prop('offsetLeft');
+          startY = elm.prop('offsetTop');
+          initialMouseX = $event.clientX;
+          initialMouseY = $event.clientY;
+          return false;
+      })
+
+      elm.bind("dragend", function($event) {
+          var dx = $event.clientX - initialMouseX;
+          var dy = $event.clientY - initialMouseY;
+          elm.css({
+              top:  startY + dy + 'px',
+              left: startX + dx + 'px'
+          });
+          console.log('dy',dy,'dx',dx);
+          return false;
+      })
+
+
       //return $compile(scope.element.html)(scope);
       //  scope.element;
       //console.log('in post fn', scope, elem, attrs, one)
@@ -93,7 +117,7 @@ angular.module('app')
     }
   }
 }])
-.directive('toolbox', ['$document' , function($document) {
+.directive('toolbox', [function() {
     return {
         restrict: 'A',
         link: function(scope, elm, attrs) {
