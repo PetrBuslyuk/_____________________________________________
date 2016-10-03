@@ -1,6 +1,8 @@
 <div class="builder-main" >
-    <div class="builder-pain" dragula='"builder-pain"' dragula-scope="$scope" dradula-model="items">
-        <div ng-repeat="item in items"></div>
+    <div class="builder-pain" dragula='"builder-pain"' dragula-scope="$scope"  dradula-model="items" >
+        <div ng-repeat="item in items">
+          <div dragula='"builder-pain"' dragula-scope="$parent" dradula-model="item"></div>
+        </div>
     </div>
     <div toolbox class="tools"
          draggable="true"
@@ -12,8 +14,8 @@
         <div class="builder-tools-items" ng-model="toolElement.collapsed" ng-click="toolElement.collapsed=!toolElement.collapsed">
             <span ng-class="{'tools-opened-item-menu': toolElement.collapsed}" ng-bind="toolElement.name">Основные элементы</span>
         </div>
-        <div ng-repeat="element in toolElement.items" ng-show="toolElement.collapsed" class="toolsElems" dragula='"builder-pain"' dragula-scope="$scope">
-            <element-dragged element="element"></element-dragged>
+        <div ng-show="toolElement.collapsed" class="toolsElems" dragula='"builder-pain"' dragula-scope="$scope">
+          <div ng-repeat="element in toolElement.items" ng-bind-html="element.html "></div>
         </div>
       </div>
 
