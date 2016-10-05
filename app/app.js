@@ -1,4 +1,4 @@
-angular.module("app", ['ui.router',  angularDragula(angular), 'ngAnimate', 'ngSanitize'])
+angular.module("app", ['ui.router',  'dragularModule', 'ngAnimate', 'ngSanitize'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('home', {

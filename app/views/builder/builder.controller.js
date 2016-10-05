@@ -1,19 +1,23 @@
-angular.module('app')
-.controller('BuilderCtrl', function($scope, dragulaService, $sce){
+'use strict';
 
-    $scope.toolsSlide = true;
-    dragulaService.options($scope, 'builder-pain', {
+angular.module('app')
+.controller('BuilderCtrl', ['$scope', 'dragularService', '$sce','$timeout', '$element',
+function($scope, dragularService, $sce, $timeout, $element){
+$timeout(function() {
+    var containers = $element.children().eq(0).children();
+    dragularService.cleanEnviroment();
+    var drake = dragularService(containers, {
+      containersModel: [$scope.items],
       removeOnSpill: function(el, container, handle){
         return true
       },
-      copy: function (el, container, handle) {
-        if(container.classList.contains('toolsElems')) return true
-        else return false
+      copy: function (el, container) {
+        return el.className === 'toolsElem'
       }
     });
 
-    $scope.$on('builder-pain.drag', function (e, el) {
-      console.log($scope.items);
+    $scope.$on('builder-pain.dragend', function (e, el) {
+      // console.log($scope.items);
       console.log(e, el);
       // el.removeClass('ex-moved');
     });
@@ -29,7 +33,7 @@ angular.module('app')
     // $scope.$on('builder-pain.out', function (e, el, container) {
     //   container.removeClass('ex-over');
     // });
-
+}, 0);
     $scope.tools = {
       "main": {
         "name": "Main elements",
@@ -66,10 +70,11 @@ angular.module('app')
 
     $scope.items = [];
 
+    $scope.toolsSlide = true;
     $scope.toolsClick = function () {
         $scope.toolsSlide = !$scope.toolsSlide
     }
-})
+}])
 .directive('elementDragged', ['$compile', function($compile){
   return {
     restrict: 'AE',
