@@ -4,7 +4,7 @@
             <h1 class="main-header">Welcome on page builder!</h1>
             <ul class="main-menu">
                 <li ui-sref="signup">Sign Up</li>
-                <li ui-sref="signin">Sign In</li>
+                <li ng-click="openSignInModal()">Sign In</li>
                 <li ui-sref="builder">Builder</li>
                 <li ui-sref="price">Price</li>
                 <li ui-sref="contact">Contact</li>
@@ -13,3 +13,6 @@
         </div>
     </div>
 </div>
+<!-- <script type="text/ng-template" id="signin.html">
+  <p>External scope: </p>
+</script> -->
